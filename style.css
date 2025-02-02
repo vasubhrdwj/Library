@@ -6,20 +6,51 @@
   margin: 0;
   padding: 0;
   border: none;
+  box-sizing: border-box;
 }
 
 :root {
   font-family: Roboto;
+  background-color: #000000;
+  color: white;
 }
 
 .heading {
-  background-color: #bfbfbf;
   box-sizing: border-box;
   padding: 20px;
+  height: 15vh;
+  border-bottom: 2px solid #ffffff;
+  width: 90vw;
+  margin: auto;
 }
 
 h1 {
   text-align: center;
   padding: 20px;
   font-size: 42px;
+}
+
+.display {
+  margin: 20px;
+  height: 80vh;
+  padding: 36px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 300px);
+  grid-template-rows: repeat(auto-fit, 250px);
+  gap: 40px;
+}
+
+.book-card {
+  padding: 20px;
+  background-color: #121212;
+  /* color: #03dac6;
+ */
+  color: #ffffff;
+  text-align: left;
+  /* width: 100px;
+  height: 100px; */
+}
+
+.title {
+  color: #ffffff;
 }

@@ -1,5 +1,7 @@
 const myLibrary = [];
 
+const mainBox = document.querySelector(".display");
+
 function Book(title, author, pages, read) {
   this.title = title;
   this.author = author;
@@ -13,9 +15,31 @@ function addBooktoLibrary(title, author, pages, read) {
 }
 
 addBooktoLibrary("Atomic Habits", "James Clear", 250, true);
+addBooktoLibrary("Thinking Fast and Slow", "Daniel Kahneman", 600, false);
+// addBooktoLibrary("Atomic Habits", "James Clear", 250, true);
+// addBooktoLibrary("Atomic Habits", "James Clear", 250, true);
+// addBooktoLibrary("Atomic Habits", "James Clear", 250, true);
+// addBooktoLibrary("Atomic Habits", "James Clear", 250, true);
 
-function displayBooks(){
-  for(let i=0; i <myLibrary.size(); i++){
-    
-  }
+function displayBooks() {
+  myLibrary.forEach((book) => {
+    const bookCard = document.createElement("div");
+    bookCard.classList.add("book-card");
+
+    bookCard.innerHTML = `
+            <h3 class="title">${book.title}</h3>
+            <br><br>
+            <p><strong>Author:</strong> ${book.author}</p>
+            <br>
+            <p><strong>Pages:</strong> ${book.pages}</p>
+            <br>
+            <p class="status ${book.read ? "" : "not-read"}">
+                ${book.read ? "✅ Read" : "❌ Not Read"}
+            </p>
+    `;
+
+    mainBox.appendChild(bookCard);
+  });
 }
+
+displayBooks();
