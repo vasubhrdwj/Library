@@ -1,3 +1,25 @@
-*{
-    background-color: beige;
+@font-face {
+  font-family: "Roboto";
+  src: url(fonts/Roboto-Medium.ttf);
+}
+* {
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+
+:root {
+  font-family: Roboto;
+}
+
+.heading {
+  background-color: #bfbfbf;
+  box-sizing: border-box;
+  padding: 20px;
+}
+
+h1 {
+  text-align: center;
+  padding: 20px;
+  font-size: 42px;
 }
