@@ -92,7 +92,7 @@ dialog::backdrop {
 }
 
 .new-input {
-  height: 40vh;
+  height: 45vh;
 }
 
 label {
@@ -117,6 +117,22 @@ fieldset {
   margin-top: 10px;
 }
 
-.form-add{
-  
+.form-add {
+  padding: 15px;
+  text-align: center;
+  border-radius: 10px;
+  margin-top: 20px;
+  text-align: center;
+  background-color: #03dac6;
+  color: #ffffff;
+  font-size: 16px;
+}
+
+.close-btn {
+  background-color: black;
+  padding: 8px;
+  font-size: 20px;
+  color: white;
+  display: flex;
+  margin-left: auto;
 }

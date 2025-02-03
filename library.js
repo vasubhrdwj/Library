@@ -5,6 +5,7 @@ const newBook = document.querySelector(".new-book");
 const newBookBtn = document.querySelector(".new-book-btn");
 const inputForm = document.querySelector(".new-input");
 const dialog = document.querySelector("dialog");
+const closeBtn = document.querySelector(".close-btn");
 
 function Book(title, author, pages, read) {
   this.title = title;
@@ -48,4 +49,8 @@ displayBooks();
 
 newBookBtn.addEventListener("click", (event) => {
   dialog.showModal();
+});
+
+closeBtn.addEventListener("click", () => {
+  dialog.close();
 });
