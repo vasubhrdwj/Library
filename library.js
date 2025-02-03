@@ -1,6 +1,9 @@
 const myLibrary = [];
 
 const mainBox = document.querySelector(".display");
+const newBook = document.querySelector(".new-book");
+const newBookBtn = document.querySelector(".new-book-btn");
+const inputForm = document.querySelector(".new-input");
 
 function Book(title, author, pages, read) {
   this.title = title;
@@ -16,8 +19,6 @@ function addBooktoLibrary(title, author, pages, read) {
 
 addBooktoLibrary("Atomic Habits", "James Clear", 250, true);
 addBooktoLibrary("Thinking Fast and Slow", "Daniel Kahneman", 600, false);
-// addBooktoLibrary("Atomic Habits", "James Clear", 250, true);
-// addBooktoLibrary("Atomic Habits", "James Clear", 250, true);
 // addBooktoLibrary("Atomic Habits", "James Clear", 250, true);
 // addBooktoLibrary("Atomic Habits", "James Clear", 250, true);
 
@@ -38,8 +39,13 @@ function displayBooks() {
             </p>
     `;
 
-    mainBox.appendChild(bookCard);
+    mainBox.insertBefore(bookCard, newBook);
   });
 }
 
 displayBooks();
+// inputForm.style.display = "none";
+// inputForm.style.display = "block";
+newBookBtn.addEventListener("click", (event) => {
+  
+});

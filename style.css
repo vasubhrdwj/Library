@@ -22,10 +22,14 @@
   border-bottom: 2px solid #ffffff;
   width: 90vw;
   margin: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
 }
 
 h1 {
-  text-align: center;
+  /* text-align: center; */
   padding: 20px;
   font-size: 42px;
 }
@@ -43,14 +47,37 @@ h1 {
 .book-card {
   padding: 20px;
   background-color: #121212;
-  /* color: #03dac6;
- */
+  /* color: #03dac6;*/
   color: #ffffff;
   text-align: left;
-  /* width: 100px;
-  height: 100px; */
 }
 
 .title {
   color: #ffffff;
+}
+
+.new-book {
+  background-color: #000000;
+}
+
+.new-book-btn {
+  padding: 20px;
+  background-color: #03dac6;
+  /* background-color: #121212; */
+
+  color: #ffffff;
+  font-size: 20px;
+  border-radius: 10px;
+}
+
+label {
+  font-size: 16px;
+}
+
+input {
+  padding: 2px;
+}
+
+.inp {
+  padding: 10px;
 }
