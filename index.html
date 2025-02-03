@@ -10,27 +10,53 @@
     <div class="heading">
       <h1>Library</h1>
       <div><button class="new-book-btn">+ New book</button></div>
-
     </div>
 
-    <div class="display">
-      <div class="new-book book-card">
-        <!-- <form class="new-input">
-          <div class="inp">
-              <label for="name">Name</label><br>
-              <input type="text" id="name" />
+    <dialog>
+      <form method="dialog" class="new-input">
+        <div class="inp">
+          <label for="name">Name</label><br />
+          <input type="text" id="name" />
+        </div>
+        <div class="inp">
+          <label for="author">Author</label><br />
+          <input type="text" id="author" />
+        </div>
+        <div class="inp">
+          <label for="pages">Pages</label><br />
+          <input type="number" id="pages" />
+        </div>
+
+        <fieldset>
+          <legend>Have you read this book?</legend>
+
+          <div>
+            <input
+              type="radio"
+              id="yesRead"
+              name="readStatus"
+              value="yesRead"
+              checked
+            />
+            <label for="yesRead">Yes</label>
           </div>
-          <div class="inp">
-              <label for="author">Author</label><br>
-              <input type="text" id="author" />
+
+          <div>
+            <input
+              type="radio"
+              id="notRead"
+              name="readStatus"
+              value="notRead"
+            />
+            <label for="notRead">No</label>
           </div>
-          <div class="inp">
-              <label for="pages">Pages</label><br>
-              <input type="tel" id="pages" />
-          </div>
-        </form> -->
-      </div>
-    </div>
+        </fieldset>
+
+        <button class="form-add">Add Book</button>
+      </form>
+    </dialog>
+
+    <div class="display"></div>
 
     <script src="library.js"></script>
   </body>

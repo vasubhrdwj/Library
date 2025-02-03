@@ -4,6 +4,7 @@ const mainBox = document.querySelector(".display");
 const newBook = document.querySelector(".new-book");
 const newBookBtn = document.querySelector(".new-book-btn");
 const inputForm = document.querySelector(".new-input");
+const dialog = document.querySelector("dialog");
 
 function Book(title, author, pages, read) {
   this.title = title;
@@ -39,13 +40,12 @@ function displayBooks() {
             </p>
     `;
 
-    mainBox.insertBefore(bookCard, newBook);
+    mainBox.appendChild(bookCard);
   });
 }
 
 displayBooks();
-// inputForm.style.display = "none";
-// inputForm.style.display = "block";
+
 newBookBtn.addEventListener("click", (event) => {
-  
+  dialog.showModal();
 });
