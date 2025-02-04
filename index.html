@@ -13,11 +13,12 @@
     </div>
 
     <dialog>
-      <button class="close-btn">X</button>
       <form method="dialog" class="new-input">
+        <button class="close-btn" formmethod="dialog">X</button>
+
         <div class="inp">
           <label for="name">Name</label><br />
-          <input type="text" id="name" required />
+          <input type="text" id="title" required />
         </div>
         <div class="inp">
           <label for="author">Author</label><br />
@@ -53,7 +54,7 @@
           </div>
         </fieldset>
 
-        <button class="form-add" value="default">Add Book</button>
+        <button class="form-add" type="submit" value="default">Add Book</button>
       </form>
     </dialog>
 

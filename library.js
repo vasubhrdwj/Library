@@ -6,6 +6,13 @@ const newBookBtn = document.querySelector(".new-book-btn");
 const inputForm = document.querySelector(".new-input");
 const dialog = document.querySelector("dialog");
 const closeBtn = document.querySelector(".close-btn");
+const addBtn = document.querySelector(".form-add");
+const title = document.querySelector("#title");
+const author = document.querySelector("#author");
+const pages = document.querySelector("#pages");
+const readStatus = document.querySelector(
+  'input[name="readStatus"]'
+)?.value;
 
 function Book(title, author, pages, read) {
   this.title = title;
@@ -51,6 +58,28 @@ newBookBtn.addEventListener("click", (event) => {
   dialog.showModal();
 });
 
-closeBtn.addEventListener("click", () => {
+closeBtn.addEventListener("click", (event) => {
+  event.preventDefault();
+  dialog.close();
+});
+
+inputForm.addEventListener("submit", function (event) {
+  event.preventDefault();
+
+  const bookTitle = title.value.trim();
+  const bookAuthor = author.value.trim();
+  const bookPages = pages.value.trim();
+  const bookReadStatus = document.querySelector('input[name="readStatus"]:checked')?.value === "yesRead"; 
+
+
+  if (bookTitle && bookAuthor && bookPages) {
+    addBooktoLibrary(bookTitle, bookAuthor, bookPages, bookReadStatus);
+
+    mainBox.innerHTML = "";
+    displayBooks();
+  }
+
+  // Reset form and close dialog
+  inputForm.reset();
   dialog.close();
 });
