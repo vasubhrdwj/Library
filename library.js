@@ -11,6 +11,7 @@ const title = document.querySelector("#title");
 const author = document.querySelector("#author");
 const pages = document.querySelector("#pages");
 const readStatus = document.querySelector('input[name="readStatus"]')?.value;
+const remBtn = document.querySelector(".rem-btn");
 
 function Book(title, author, pages, read, id) {
   this.title = title;
@@ -26,7 +27,9 @@ function addBooktoLibrary(title, author, pages, read) {
   myLibrary.push(book);
 }
 
-// function removeBook()
+Book.prototype.toggleReadStatus = function () {
+  this.read = !this.read;
+};
 
 addBooktoLibrary("Atomic Habits", "James Clear", 250, true);
 addBooktoLibrary("Thinking Fast and Slow", "Daniel Kahneman", 600, false);
@@ -34,6 +37,7 @@ addBooktoLibrary("Thinking Fast and Slow", "Daniel Kahneman", 600, false);
 // addBooktoLibrary("Atomic Habits", "James Clear", 250, true);
 
 function displayBooks() {
+  mainBox.innerHTML = "";
   myLibrary.forEach((book) => {
     const bookCard = document.createElement("div");
     bookCard.classList.add("book-card");
@@ -45,10 +49,17 @@ function displayBooks() {
             <br>
             <p><strong>Pages:</strong> ${book.pages}</p>
             <br>
-            <p class="status ${book.read ? "" : "not-read"}">
+            <p class="status ${book.read ? "" : "not-read"}" id="status-${
+      book.id
+    }">
                 ${book.read ? "✅ Read" : "❌ Not Read"}
             </p>
-            <button class="rem-btn"><img src="Icons/trashIcon.svg" alt=""></button>
+            <button class="toggle-btn" id="toggle-${
+              book.id
+            }">Toggle Read</button>
+            <button class="rem-btn" id="b-${book.id}">
+                <img src="Icons/trashIcon.svg" alt="">
+            </button>
     `;
 
     mainBox.appendChild(bookCard);
@@ -59,6 +70,26 @@ displayBooks();
 
 newBookBtn.addEventListener("click", (event) => {
   dialog.showModal();
+});
+
+mainBox.addEventListener("click", function (event) {
+  // Handle Remove Button
+  if (event.target.closest(".rem-btn")) {
+    const button = event.target.closest(".rem-btn");
+    const bookId = button.id.split("-")[1];
+
+    myLibrary.splice(bookId, 1); // Remove book
+    displayBooks(); // Re-render books
+  }
+
+  // Handle Toggle Read Button
+  if (event.target.closest(".toggle-btn")) {
+    const button = event.target.closest(".toggle-btn");
+    const bookId = button.id.split("-")[1];
+
+    myLibrary[bookId].toggleReadStatus(); // Toggle read status
+    displayBooks(); // Re-render books to reflect change
+  }
 });
 
 closeBtn.addEventListener("click", (event) => {

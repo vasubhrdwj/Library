@@ -148,5 +148,11 @@ fieldset {
 
 .rem-btn>img{
   background-color: #fd5c63;
+}
 
+.rem-btn:active{
+  background-color: #E32636;
+}
+.rem-btn:active>img{
+  background-color: #E32636;
 }
