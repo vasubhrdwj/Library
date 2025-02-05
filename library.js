@@ -54,12 +54,14 @@ function displayBooks() {
     }">
                 ${book.read ? "✅ Read" : "❌ Not Read"}
             </p>
+            <div class='btns'>
             <button class="toggle-btn" id="toggle-${
               book.id
             }">Toggle Read</button>
             <button class="rem-btn" id="b-${book.id}">
                 <img src="Icons/trashIcon.svg" alt="">
             </button>
+            </div>
     `;
 
     mainBox.appendChild(bookCard);

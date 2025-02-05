@@ -40,7 +40,7 @@ h1 {
   padding: 36px;
   display: grid;
   grid-template-columns: repeat(auto-fit, 300px);
-  grid-template-rows: repeat(auto-fit, 250px);
+  grid-template-rows: repeat(auto-fit, 280px);
   gap: 40px;
 }
 
@@ -138,21 +138,35 @@ fieldset {
   margin-left: auto;
 }
 
+.btns {
+  display: flex;
+  margin-top: 20px;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
 .rem-btn {
-  position: relative;
-  left: 90%;
-  bottom: -10%;
+  background-color: #fd5c63;
+  margin-top: 15px;
   padding: 5px;
+  font-size: 16px;
+  align-self: auto;
+}
+
+.rem-btn > img {
   background-color: #fd5c63;
 }
 
-.rem-btn>img{
-  background-color: #fd5c63;
+.rem-btn:active {
+  background-color: #e32636;
+}
+.rem-btn:active > img {
+  background-color: #e32636;
 }
 
-.rem-btn:active{
-  background-color: #E32636;
-}
-.rem-btn:active>img{
-  background-color: #E32636;
+.toggle-btn {
+  background-color: gainsboro;
+  padding: 5px 10px;
+  font-size: 16px;
+  border-radius: 5px;
 }
