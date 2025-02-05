@@ -75,22 +75,20 @@ newBookBtn.addEventListener("click", (event) => {
 });
 
 mainBox.addEventListener("click", function (event) {
-  // Handle Remove Button
   if (event.target.closest(".rem-btn")) {
     const button = event.target.closest(".rem-btn");
     const bookId = button.id.split("-")[1];
 
-    myLibrary.splice(bookId, 1); // Remove book
-    displayBooks(); // Re-render books
+    myLibrary.splice(bookId, 1); 
+    displayBooks(); 
   }
 
-  // Handle Toggle Read Button
   if (event.target.closest(".toggle-btn")) {
     const button = event.target.closest(".toggle-btn");
     const bookId = button.id.split("-")[1];
 
-    myLibrary[bookId].toggleReadStatus(); // Toggle read status
-    displayBooks(); // Re-render books to reflect change
+    myLibrary[bookId].toggleReadStatus(); 
+    displayBooks(); 
   }
 });
 
@@ -116,7 +114,6 @@ inputForm.addEventListener("submit", function (event) {
     displayBooks();
   }
 
-  // Reset form and close dialog
   inputForm.reset();
   dialog.close();
 });
