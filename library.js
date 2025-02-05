@@ -10,21 +10,23 @@ const addBtn = document.querySelector(".form-add");
 const title = document.querySelector("#title");
 const author = document.querySelector("#author");
 const pages = document.querySelector("#pages");
-const readStatus = document.querySelector(
-  'input[name="readStatus"]'
-)?.value;
+const readStatus = document.querySelector('input[name="readStatus"]')?.value;
 
-function Book(title, author, pages, read) {
+function Book(title, author, pages, read, id) {
   this.title = title;
   this.author = author;
   this.pages = pages;
   this.read = read;
+  this.id = id;
 }
 
 function addBooktoLibrary(title, author, pages, read) {
-  const book = new Book(title, author, pages, read);
+  let id = myLibrary.length;
+  const book = new Book(title, author, pages, read, id);
   myLibrary.push(book);
 }
+
+// function removeBook()
 
 addBooktoLibrary("Atomic Habits", "James Clear", 250, true);
 addBooktoLibrary("Thinking Fast and Slow", "Daniel Kahneman", 600, false);
@@ -46,6 +48,7 @@ function displayBooks() {
             <p class="status ${book.read ? "" : "not-read"}">
                 ${book.read ? "✅ Read" : "❌ Not Read"}
             </p>
+            <button class="rem-btn"><img src="Icons/trashIcon.svg" alt=""></button>
     `;
 
     mainBox.appendChild(bookCard);
@@ -69,8 +72,9 @@ inputForm.addEventListener("submit", function (event) {
   const bookTitle = title.value.trim();
   const bookAuthor = author.value.trim();
   const bookPages = pages.value.trim();
-  const bookReadStatus = document.querySelector('input[name="readStatus"]:checked')?.value === "yesRead"; 
-
+  const bookReadStatus =
+    document.querySelector('input[name="readStatus"]:checked')?.value ===
+    "yesRead";
 
   if (bookTitle && bookAuthor && bookPages) {
     addBooktoLibrary(bookTitle, bookAuthor, bookPages, bookReadStatus);
