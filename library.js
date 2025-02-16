@@ -13,12 +13,22 @@ const pages = document.querySelector("#pages");
 const readStatus = document.querySelector('input[name="readStatus"]')?.value;
 const remBtn = document.querySelector(".rem-btn");
 
-function Book(title, author, pages, read, id) {
-  this.title = title;
-  this.author = author;
-  this.pages = pages;
-  this.read = read;
-  this.id = id;
+// function Book(title, author, pages, read, id) {
+//   this.title = title;
+//   this.author = author;
+//   this.pages = pages;
+//   this.read = read;
+//   this.id = id;
+// }
+
+class Book {
+  constructor(title, author, pages, read, id) {
+    this.title = title;
+    this.author = author;
+    this.pages = pages;
+    this.read = read;
+    this.id = id;
+  }
 }
 
 function addBooktoLibrary(title, author, pages, read) {
@@ -79,16 +89,16 @@ mainBox.addEventListener("click", function (event) {
     const button = event.target.closest(".rem-btn");
     const bookId = button.id.split("-")[1];
 
-    myLibrary.splice(bookId, 1); 
-    displayBooks(); 
+    myLibrary.splice(bookId, 1);
+    displayBooks();
   }
 
   if (event.target.closest(".toggle-btn")) {
     const button = event.target.closest(".toggle-btn");
     const bookId = button.id.split("-")[1];
 
-    myLibrary[bookId].toggleReadStatus(); 
-    displayBooks(); 
+    myLibrary[bookId].toggleReadStatus();
+    displayBooks();
   }
 });
 
