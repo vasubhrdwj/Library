@@ -1,18 +1,17 @@
 const myLibrary = [];
 
-const mainBox = document.querySelector(".display");
-const newBook = document.querySelector(".new-book");
-const newBookBtn = document.querySelector(".new-book-btn");
-const inputForm = document.querySelector(".new-input");
-const dialog = document.querySelector("dialog");
-const closeBtn = document.querySelector(".close-btn");
-const addBtn = document.querySelector(".form-add");
-const title = document.querySelector("#title");
-const author = document.querySelector("#author");
-const pages = document.querySelector("#pages");
-const readStatus = document.querySelector('input[name="readStatus"]')?.value;
-const remBtn = document.querySelector(".rem-btn");
-
+// const mainBox = document.querySelector(".display");
+// const newBook = document.querySelector(".new-book");
+// const newBookBtn = document.querySelector(".new-book-btn");
+// const inputForm = document.querySelector(".new-input");
+// const dialog = document.querySelector("dialog");
+// const closeBtn = document.querySelector(".close-btn");
+// const addBtn = document.querySelector(".form-add");
+// const title = document.querySelector("#title");
+// const author = document.querySelector("#author");
+// const pages = document.querySelector("#pages");
+// const readStatus = document.querySelector('input[name="readStatus"]')?.value;
+// const remBtn = document.querySelector(".rem-btn");
 
 class Book {
   constructor(title, author, pages, read, id) {
@@ -28,13 +27,40 @@ class Book {
   }
 }
 
+class Library {
+  constructor() {
+    this.mainBox = document.querySelector(".display");
+    this.newBook = document.querySelector(".new-book");
+    const newBookBtn = document.querySelector(".new-book-btn");
+    this.inputForm = document.querySelector(".new-input");
+    this.dialog = document.querySelector("dialog");
+    this.closeBtn = document.querySelector(".close-btn");
+    this.addBtn = document.querySelector(".form-add");
+    this.title = document.querySelector("#title");
+    this.author = document.querySelector("#author");
+    this.pages = document.querySelector("#pages");
+    this.readStatus = document.querySelector('input[name="readStatus"]')?.value;
+    this.remBtn = document.querySelector(".rem-btn");
+
+    this.initializeEventListeners();
+  }
+
+  initializeEventListeners() {
+    document.querySelector();
+  }
+
+  initializeEventListeners() {
+    newBookBtn.addEventListener("click", (event) => {
+      dialog.showModal();
+    });
+  }
+}
+
 function addBooktoLibrary(title, author, pages, read) {
   let id = myLibrary.length;
   const book = new Book(title, author, pages, read, id);
   myLibrary.push(book);
 }
-
-
 
 addBooktoLibrary("Atomic Habits", "James Clear", 250, true);
 addBooktoLibrary("Thinking Fast and Slow", "Daniel Kahneman", 600, false);
@@ -74,10 +100,6 @@ function displayBooks() {
 }
 
 displayBooks();
-
-newBookBtn.addEventListener("click", (event) => {
-  dialog.showModal();
-});
 
 mainBox.addEventListener("click", function (event) {
   if (event.target.closest(".rem-btn")) {
