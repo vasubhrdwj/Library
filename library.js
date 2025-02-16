@@ -13,13 +13,6 @@ const pages = document.querySelector("#pages");
 const readStatus = document.querySelector('input[name="readStatus"]')?.value;
 const remBtn = document.querySelector(".rem-btn");
 
-// function Book(title, author, pages, read, id) {
-//   this.title = title;
-//   this.author = author;
-//   this.pages = pages;
-//   this.read = read;
-//   this.id = id;
-// }
 
 class Book {
   constructor(title, author, pages, read, id) {
@@ -29,6 +22,10 @@ class Book {
     this.read = read;
     this.id = id;
   }
+
+  toggleReadStatus() {
+    this.read = !this.read;
+  }
 }
 
 function addBooktoLibrary(title, author, pages, read) {
@@ -37,9 +34,7 @@ function addBooktoLibrary(title, author, pages, read) {
   myLibrary.push(book);
 }
 
-Book.prototype.toggleReadStatus = function () {
-  this.read = !this.read;
-};
+
 
 addBooktoLibrary("Atomic Habits", "James Clear", 250, true);
 addBooktoLibrary("Thinking Fast and Slow", "Daniel Kahneman", 600, false);
